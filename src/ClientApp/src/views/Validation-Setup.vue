@@ -44,8 +44,8 @@
   </div>
 </template>
 
-<script setup>
-import { Field, Form, ErrorMessage } from 'vee-validate'
+<script setup lang="ts">
+import { Field, Form, ErrorMessage, FormActions } from 'vee-validate'
 import { ref, reactive } from 'vue'
 import { Person, PersonSchema } from '@/models/Person'
 import axios from 'axios'
@@ -54,7 +54,7 @@ const message = ref('')
 const error = ref('')
 const model = reactive({ name: 'Isadora Jarr', age: 39, emailAddress: 'im@nonymous.com' })
 
-const onSubmit = (values, actions) => {
+const onSubmit = (values: any, actions: FormActions<any>) => {
   message.value = ''
   error.value = ''
   axios
